@@ -25,6 +25,7 @@ def generate_launch_description():
                 )]), launch_arguments={'use_sim_time': 'true', 'use_ros2_control': 'true'}.items()
     )
 
+
     # joystick = IncludeLaunchDescription(
     #             PythonLaunchDescriptionSource([os.path.join(
     #                 get_package_share_directory(package_name),'launch','joystick.launch.py'
@@ -56,17 +57,17 @@ def generate_launch_description():
                         output='screen')
 
 
-    # diff_drive_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["diff_cont"],
-    # )
+    diff_drive_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["diff_cont"],
+    )
 
-    # joint_broad_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["joint_broad"],
-    # )
+    joint_broad_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_broad"],
+    )
 
 
     # Code for delaying a node (I haven't tested how effective it is)
@@ -94,6 +95,6 @@ def generate_launch_description():
         #twist_mux,
         gazebo,
         spawn_entity,
-        #diff_drive_spawner,
-        #joint_broad_spawner
+        diff_drive_spawner,
+        joint_broad_spawner
     ])
